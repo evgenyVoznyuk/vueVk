@@ -7,12 +7,12 @@ module.exports = {
 	configureWebpack: {
     devServer: {
       historyApiFallback: true,
-      proxy: {
-         '^/method/': {
-            target: 'https://api.vk.com', 
-            changeOrigin: true
-         }
-      }
+      // proxy: {
+      //    '^/method/': {
+      //       target: 'https://api.vk.com', 
+      //       changeOrigin: true
+      //    }
+      // }
     },
     resolve:{
       alias: {
