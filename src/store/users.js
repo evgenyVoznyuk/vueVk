@@ -19,10 +19,10 @@ export default {
       let sexName = 'н/д';
       switch (sexId) {
         case 1:
-          sexName = 'женский';
+          sexName = 'Ж';
           break;
         case 2:
-          sexName = 'мужской';
+          sexName = 'М';
           break;
       }
       return sexName;

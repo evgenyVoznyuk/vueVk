@@ -1,13 +1,14 @@
 <template>
   <div v-if="isFind">
-    <v-card tile width="700">
+    <v-card tile>
       <v-card-title class="display-1">
-        {{friend.first_name}} {{friend.last_name}}
+        {{friend.first_name}} <br v-if="$vuetify.breakpoint.xsOnly"/>
+        {{friend.last_name}}
       </v-card-title>
       <v-card-subtitle>
         Дружит c: {{getNames(friend.isFriendOf)}}
       </v-card-subtitle>
-      <v-row justify="center">
+      <v-row justify="center" class ="mx-0">
         <v-card-title v-if="showPosts">
           Записи на стене
         </v-card-title>
@@ -22,11 +23,12 @@
         <v-window-item
           v-for="(item, i) in friends.wallList"
           :key="`card-${i}`"
-          class="px-12"
+          class="fill-height"
+          :class="{'px-12': $vuetify.breakpoint.smAndUp}"
         >
           <v-card min-height="500" flat tile>
             <v-row
-              class="fill-height mx-4"
+              class= fill-height mx-4
               tag="v-card-text"
             >
               <v-card-text>
@@ -59,6 +61,7 @@
         min-width="130px"
         color="primary"
         :to="{name: 'users'}"
+        :block="$vuetify.breakpoint.xsOnly"
       >Назад к пользователям</v-btn>
     </v-row>
   </div>
@@ -103,14 +106,6 @@
       showPosts(){
         return this.friends.wallList.length > 0 && !this.friends.waitWallText && !this.friends.errorWallText
       }
-    },
-    methods: {
-      
-		}
-
+    }
 	}
 </script>
-
-<style scoped>
-
-</style>

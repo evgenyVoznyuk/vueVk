@@ -10,6 +10,7 @@
           <v-list-item
             :key="user.id"
             :value="user.id"
+            :three-line="$vuetify.breakpoint.xsOnly"
           >
             <template v-slot:default="{active}">
               <v-list-item-content>
@@ -18,15 +19,16 @@
                 </v-list-item-title>
                 <v-list-item-subtitle>
                   Пол: {{userSex(user.id)}} | 
-                  Возраст: {{userAge(user.id)}} |
+                  Возраст: {{userAge(user.id)}} | 
                   Друзей: {{friendsCount(user.id)}}
                 </v-list-item-subtitle>
               </v-list-item-content>
-              <v-list-item-action class="mr-4">
+              <v-list-item-action class="mr-1">
                 <v-checkbox
                   :input-value="active"
                   :true-value="user.id"
                   dense
+                  v-if="$vuetify.breakpoint.smAndUp"
                 >
                 </v-checkbox>
               </v-list-item-action>
@@ -81,10 +83,5 @@
         this.delete({id: e.currentTarget.value})
       }
 		}
-
 	}
 </script>
-
-<style scoped>
-
-</style>
